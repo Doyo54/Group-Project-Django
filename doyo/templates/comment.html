@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container" style="margin-top:7%;">
+    <div class="card">
+        <div class="row">
+            <a href="/">
+                <div class="col-md-1"> <i style="font-size:xx-large; margin-right: 10%;" class="fa fa-arrow-left" aria-hidden="true"></i></div>
+                </a>
+            <div class="col-md-3 mt-2">
+              
+                <hr style="width:96%">
+                {% for comment in posts.comments.all %}
+                <div class="comment">
+                    <div class="ml-2"><strong></strong> <span class="text-secondary">{{ comment.comment }}</span>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="ml-3">No comments here yet</p>
+                {% endfor %}
+                <hr style="width:96%; margin-top:84%;">
+                <div id="like-section">
+                    
+                </div>
+                <form class="form" action="" method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-10">
+                            {{ form}}
+                        </div>
+                        <div class="col-md-2 mt-4" >
+                            <button type="submit" class="btn btn-sm btn-outline-primary" style="margin-top:14px; margin-left:-10px">post</button>
+                            
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}
