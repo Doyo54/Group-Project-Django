@@ -39,8 +39,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'benson1',
-
+    'bootstrap5',
+    'cloudinary',
+    'tinymce',
+    'crispy_forms',
+    'bootstrap4',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'django_registration',
 ]
+
+# important for working with custom user model
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = '/'
+AUTH_USER_MODEL = 'benson1.AllUsers'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,8 +90,10 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'doc',
+        'USER': 'benie',
+        'PASSWORD': '12345',
     }
 }
 
