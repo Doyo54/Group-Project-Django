@@ -50,3 +50,23 @@ class PatientAccountManager(BaseUserManager):
         patient.save()
         return patient
 
+
+class Patient(AbstractBaseUser,PermissionsMixin):
+    email = models.EmailField(_('Email'),max_length=150,unique=True,default='')
+    username = models.CharField(_('Username'),max_length=150,unique=True,default='')
+    first_name = models.CharField(max_length=150,default='')
+    last_name = models.CharField(max_length=150,default='')
+    age = models.PositiveIntegerField(validators=[MinValueValidator(18),MaxValueValidator(99)],null=True)
+    sex = models.CharField(max_length=40,null=True)
+    location = models.CharField(max_length=100,default='')
+    reg_date = models.DateTimeField(default=timezone.now)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+
+    objects = PatientAccountManager()
+
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email','first_name','location']
+
+    def __str_(self):
+        return self.first_name
