@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
-from benson1.forms import DoctorRegForm,PatientRegForm,DoctorLoginForm,PatientLoginForm
+from benson1.auth_forms import DoctorRegForm,PatientRegForm,DoctorLoginForm,PatientLoginForm
 from django.views import View
 
 

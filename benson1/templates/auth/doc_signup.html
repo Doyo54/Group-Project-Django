@@ -5,7 +5,7 @@
 {% load crispy_forms_tags %}
 
 {%block content%}
-<body style="background-color:#14213d;">
+<body style="background-color:black;">
 
 </body>
 
@@ -26,7 +26,7 @@
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form action="/user/register/" method="post" style="text-align:center;">
+                    <form action="/doc/register/" method="post" style="text-align:center;">
                         {%csrf_token%}
                         {{doc_reg_form|crispy}}
                         <div class="form-group">
