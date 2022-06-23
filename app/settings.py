@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cindy',
     'benjamin',
-    'bootstrap4'
-    'fontawesomefree',
+    'bootstrap4',
+    'fontawesomefree'
+    
 
 ]
 
