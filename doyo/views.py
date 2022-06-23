@@ -4,7 +4,7 @@ from .forms import PostForm,CommentForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-def index(request):
+def post(request):
     posts = Post.objects.all()
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
@@ -18,7 +18,7 @@ def index(request):
         'posts': posts,
         'form': form,
     }
-    return render(request, 'index.html',loops)
+    return render(request, 'post.html',loops)
 
 def post_comment(request, id):
     posts = get_object_or_404(Post, pk=id)

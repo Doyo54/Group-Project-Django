@@ -21,7 +21,7 @@ from . import views
 
 urlpatterns = [
     
-    re_path(r'',views.index,name='post'),
+    re_path(r'^$',views.post,name='post'),
     re_path(r'^comment/(?P<id>\w+)/', views.post_comment, name='comment'),
     re_path(r'^search/', views.search, name='search'),
 

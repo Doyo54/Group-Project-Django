@@ -1,6 +1,5 @@
 from django.urls import re_path,include
 from . import views
-from doyo.views import index
 
 
 urlpatterns = [
