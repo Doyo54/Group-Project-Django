@@ -4,7 +4,6 @@
 <div class="container" style="margin-top:8%;">
     <div class="row">
         <div class="col-md-1"></div>
-        <div class="col-md-9">
             <button data-toggle="modal" data-target="#imageUpload" class="button-64" role="button"><span class="text">Post</span></button>
                 <div class="modal fade" id="imageUpload" tabindex="-1" role="dialog"
                      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -40,14 +39,11 @@
            
 <h3 style="text-decoration: underline;">Public Posts</h3>
             {% for post in posts %}
-  
-            
-            <div style="margin-top: 5%; margin-left: 10%; font-size: large;"  class="card">
+        <div class="col-md-4    ">
+            <div style="font-size: large;"  class="card">
                 
                 <div class="card-body mb-4">
-                    <div class="card-text"
-                         style="background-size: contain;position: sticky">
-            
+                    <div class="card-text"> 
                         <h3 class="card-title mb-2">{{post.description}}</h3>
                     </div>
                 </div>
@@ -59,18 +55,17 @@
                 <span style="font-size: large;" class="text-secondary ml-4 viewall"><a href="{% url 'comment' post.id %}">View all {{post.comments.count}} comment{{post.comments.count|pluralize}}</a></span>
                 <div class="allcomments mb-4">
                     {% for comment in post.comments.all|slice:'2' %}
-                    <div class="comment">
-                        <div class="ml-4"><strong>{{ comment.user.user.username }}</strong> <span
-                                class="text-secondary">{{ comment.comment }}</span>
-                        </div>
-                    </div>
+                    
                     {% empty %}
                     {% endfor %}
                     <p class="text-secondary ml-4">Posted: {{post.pub_date|date}}</p>
                 </div>
             </div>
-            {% endfor %}
         </div>
+            
+            {% endfor %}
+        
+
         
 
     </div>
