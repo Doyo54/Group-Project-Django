@@ -1,0 +1,15 @@
+% extends 'base.html' %}
+{% block content %}
+<div class="container ">
+    <div class="row" style="margin-top: 15%; margin-left: 15%;">
+        <div class="col-md-1"></div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4"> <img class="rounded-circle account-img d-block mx-auto" src="{{ user.profile.profile_picture.url }}" style="border-radius: 50%; width:70%;"></div>
+        <div class="col-md-3" style="margin-top: 5%; font-size: x- large;">
+            <p class="text-center">Name: {{user.username|upper}}</p>
+            <p class="text-center"> {{user.email}}</p>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
+{% endblock %}
