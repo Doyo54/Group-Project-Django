@@ -1,0 +1,31 @@
+{%extends 'auth/base.html'%}
+{%load bootstrap5%}
+{%load bootstrap4%}
+{%load crispy_forms_tags%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+{%block content%}
+<body style="background-color:#E8F1FE;">
+
+</body>
+<div class="container">
+    <div class="panel-body" style="margin-top:5%;margin-left:40%;">
+<form action="/user/submit/details/" method="post">
+    {%csrf_token%}
+    {{patientform|crispy}}
+    <div class="form-group">
+        <input type="submit" class="btn btn-dark btn-outline-info btn-sm" value="Submit">
+    </div>
+    <input type="hidden" name="next" value="{{next}}">
+</form>
+</div>
+</div>
+
+
+
+{%endblock%}
+</html>

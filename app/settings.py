@@ -35,13 +35,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'tester',
     'django.contrib.admin',
+    'channels',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'benson1',
+    
     'bootstrap5',
     'cloudinary',
     'tinymce',
@@ -55,7 +57,7 @@ INSTALLED_APPS = [
 # important for working with custom user model
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
-AUTH_USER_MODEL = 'benson1.AllUsers'
+AUTH_USER_MODEL = 'tester.AllUsers'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,6 +88,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
+ASGI_APPLICATION = 'app.asgi.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1',6379)],
+        },
+    },
+}
 
 
 # Database
@@ -94,7 +105,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'doc',
+        'NAME': 'groupp',
         'USER': 'benie',
         'PASSWORD': '12345',
     }
