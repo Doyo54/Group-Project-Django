@@ -2,7 +2,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 from tester.auth_views import DoctorRegView,AllUsersLoginView,PatientRegView
 from tester.auth_forms import LoginForm
-from tester.views import home,doc,doc_profile,chat_home,chat,check,user
+from tester.views import home,doc,doc_profile,chat_home,chat,check,user,user_profile
 from tester import views
 
 urlpatterns = [
@@ -13,7 +13,8 @@ urlpatterns = [
 	path('doc/signup/',DoctorRegView.as_view(),name='doc-signup'),
 	path('doc/submit/details/',doc,name='doc-details'),
 	path('user/submit/details/',user,name='user-details'),
-	path('doc/profile',doc_profile,name='doc-profile'),
+	path('doc/profile/',doc_profile,name='doc-profile'),
+	path('user/profile/',user_profile,name='user-profile'),
     path('logout/',auth_views.LogoutView.as_view(template_name='auth/logout.html'),name='logout'),
 	path('user/signup/',PatientRegView.as_view(),name='user-signup'),
     path('login/',AllUsersLoginView.as_view(redirect_authenticated_user=True,template_name='auth/login.html',authentication_form=LoginForm),name='login'),

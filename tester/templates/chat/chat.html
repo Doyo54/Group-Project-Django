@@ -1,4 +1,4 @@
-{%extends 'auth/base.html'%}
+{%extends 'base.html'%}
 {%load static%}
 {%load bootstrap5%}
 
@@ -40,7 +40,7 @@
 
     chatSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
-        document.querySelector('#chat-log').value += (data.user + ':' + data.message + '\n');
+        document.querySelector('#chat-log').value += (data.user + ' : ' + data.message + '\n');
     }
 
     chatSocket.onclose = function(e) {

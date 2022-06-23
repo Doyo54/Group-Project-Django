@@ -12,6 +12,7 @@ from tester.forms import PatientForm,DoctorForm
 import json
 from tester.forms import Dummy
 from django.views.decorators.csrf import csrf_exempt
+from django.utils import timezone
 
 # Create your views here.
 def home(request):
@@ -19,8 +20,9 @@ def home(request):
 	title = 'Home'
 	return render(request, 'index.html',{"message":message,"title":title})
 
-
+@login_required
 def doc(request):
+	user = request.user
 	message = 'Just testing things for now'
 	title = "Doc's details"
 	form = Dummy
@@ -31,14 +33,18 @@ def doc(request):
 			specialty = docform.cleaned_data['specialty']
 			medical_license = docform.cleaned_data['medical_license']
 			licensed_by = docform.cleaned_data['licensed_by']
-			doctor = Doctor(specialty=specialty,medical_license=medical_license,licensed_by=licensed_by,)
+			national_id = docform.cleaned_data['national_id']
+			field_of_experience = docform.cleaned_data['field_of_experience']
+			years_of_practice = docform.cleaned_data['field_of_experience']
+			doctor = Doctor(specialty=specialty,medical_license=medical_license,licensed_by=licensed_by,national_id=national_id,field_of_experience=field_of_experience,years_of_practice=years_of_practice)
 			# location.user = current_user
 			doctor.save()
 		return redirect('doc-profile')
 	else:
 		docform = DoctorForm()
-	return render(request, 'doc/credentials.html',{"message":message,"title":title,"docform":docform,"form":form})
+	return render(request, 'doc/credentials.html',{"message":message,"title":title,"docform":docform,"form":form,"user":user})
 
+@login_required
 def user(request):
 	message = 'Just testing things for now'
 	title = "Patient's details"
@@ -65,13 +71,18 @@ def doc_profile(request):
 	title = "Doc's profile"
 	return render(request, 'doc/profile.html',{"title":title})
 
+def user_profile(request):
+	title = "User's profile"
+	return render(request, 'user/profile.html',{"title":title})
+
 def chat_home(request):
     return render(request,'chat_index.html',)
 
 def chat(request,room_name):
 	user = request.user
+	time = timezone.now
 	room_details = Room.objects.get(name=room_name)
-	return render(request,'chat/chat.html',{'room_name':room_name,'user':user,'room_details':room_details})
+	return render(request,'chat/chat.html',{'room_name':room_name,'user':user,'room_details':room_details,"time":time})
 
 
 def check(request):

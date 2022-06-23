@@ -9,7 +9,7 @@ from django.views import View
 class DoctorRegView(View):
 	form_class = DoctorRegForm
 	initial = {'key': 'value'}
-	template_name = 'auth/signup.html'
+	template_name = 'auth/doc_signup.html'
 
 	def dispatch(self, request, *args, **kwargs):
 		if request.user.is_authenticated:
@@ -36,7 +36,7 @@ class DoctorRegView(View):
 class PatientRegView(View):
 	form_class = PatientRegForm
 	initial = {'key': 'value'}
-	template_name = 'auth/signup.html'
+	template_name = 'auth/user_signup.html'
 
 	def dispatch(self, request, *args, **kwargs):
 		if request.user.is_authenticated:
@@ -56,7 +56,7 @@ class PatientRegView(View):
 			username = patient_reg_form.cleaned_data.get('username')
 			messages.success(request, f'Account created for {username}')
 
-			return redirect(to='/user/submit/details/')
+			return redirect(to='/user/submit/details')
 		return render(request, self.template_name, {"patient_reg_form": patient_reg_form})
 
 

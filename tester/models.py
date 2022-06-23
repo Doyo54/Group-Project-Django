@@ -26,7 +26,7 @@ class AllUsers(AbstractBaseUser,PermissionsMixin):
     username = models.CharField(_('Username'),max_length=60,unique=True,default='')
     first_name = models.CharField(max_length=150,unique=False,default='')
     last_name = models.CharField(max_length=150,unique=False,default='')
-    license_no = models.PositiveIntegerField(default=123456,unique=True,validators=[MinValueValidator(10000),MaxValueValidator(999999)])
+    license_no = models.PositiveIntegerField(default=123456,validators=[MinValueValidator(10000),MaxValueValidator(999999)])
     reg_date = models.DateTimeField(default=timezone.now)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
@@ -42,8 +42,10 @@ class AllUsers(AbstractBaseUser,PermissionsMixin):
 
 class Doctor(models.Model):
     doctor = models.ForeignKey(AllUsers, on_delete=models.DO_NOTHING, null=True)
+    what_you_do_in_a_few_words = models.CharField(max_length=200, default='')
+    photo_url = CloudinaryField('Upload your photo',default='')
     specialty = models.CharField(max_length=100, default='')
-    medical_license = CloudinaryField('image')
+    medical_license = CloudinaryField('medical License')
     licensed_by = models.CharField(max_length=60, default='')
     national_id = models.PositiveIntegerField(default=12345670,
                                               validators=[MinValueValidator(10000000), MaxValueValidator(99999999)])

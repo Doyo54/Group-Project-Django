@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{%load static%}
+{%load bootstrap5%}
+{%load crispy_forms_tags%}
+
+{%block content%}
+<body style="background-color:#E8F1FE;">
+
+</body>
+<div class="container" style="background:transparent;width:auto;height:auto;max-width:80%;margin-bottom:2.5%;">
+    <div class="row" style="margin-top:2.5%;padding-top:1.5%;padding-bottom:1.5%;">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4 rounded" style="background-color:rgb(250,250,250);padding:2.5%;">
+            {%if form.errors%}
+            <p>
+                Some information may be incorrect.
+            </p>
+            {%endif%}
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="text-center">
+
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div style="text-align:center;">
+                        <h5>You are logged out.</h5>
+                    <h6>We hope you found your time with us helpful!</h6>
+                    <p>Remember...</p>
+                    <p>Help is always here for you if you need it.</p>
+                    </div>
+
+                </div>
+            </div>
+            <p style="margin-top:1.5%;font-size:small;">Give us another go? <small><a href="/login/">login here</a></small>.</p>
+            <p style="margin-top:1.5%;font-size:small;">Don't have an account? Sign up <a href="/doc/signup/">as a Doctor</a> or a <a href="/user/signup/">Standard user</a></p>
+        </div>
+
+        <div class="col-md-4"></div>
+    </div>
+</div>
+{%endblock%}

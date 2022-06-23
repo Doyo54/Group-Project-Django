@@ -105,7 +105,7 @@ CHANNEL_LAYERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gthree',
+        'NAME': 'projdb',
         'USER': 'benie',
         'PASSWORD': '12345',
     }

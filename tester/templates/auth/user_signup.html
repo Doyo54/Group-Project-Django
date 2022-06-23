@@ -1,42 +1,46 @@
 {%extends 'base.html'%}
 {%load static%}
 {%load bootstrap5%}
+{%load bootstrap4%}
 {%load crispy_forms_tags%}
+
 
 {%block content%}
 <body style="background-color:#E8F1FE;">
 
 </body>
+
 <div class="container" style="background:transparent;width:auto;height:auto;max-width:80%;margin-bottom:2.5%;">
     <div class="row" style="margin-top:2.5%;padding-top:1.5%;padding-bottom:1.5%;">
-        <h3 class="text-center">You found help</h3>
         <div class="col-md-4"></div>
 
-        <div class="col-md-4 rounded" style="background-color:rgb(250,250,250);padding:2.5%;">
+        <div class="col-md-4 rounded" style="background:transparent;padding:2.5%;">
             {%if form.errors%}
             <p>
-                Some information may be incorrect.
+                Please confirm that your information is correct.
             </p>
             {%endif%}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="text-center">
-                        Login to continue
+                        Sign up as a
                     </h3>
+                    <h4 class="text-center">Standard user</h4>
                 </div>
                 <div class="panel-body">
-                    <form action="/login/" method="post">
+                    <form action="/user/signup/" method="post" style="text-align:center;">
                         {%csrf_token%}
-                        {{form|crispy}}
+                        {{ patient_reg_form|crispy }}
                         <div class="form-group">
-                            <input type="submit" class="btn btn-dark btn-outline-info btn-sm" value="Sign in">
+                            <input type="submit" class="btn btn-outline-info btn-dark btn-sm" value="Sign Up" style="margin-top:1.5%;">
                         </div>
                         <input type="hidden" name="next" value="{{next}}">
                     </form>
                 </div>
             </div>
-            <p style="margin-top:1.5%;font-size:small;">Don't have an account? Sign up <a href="/doc/signup/">as a Doctor</a> or a <a href="/user/signup/">Standard user</a></p>
         </div>
+
+        
 
         <div class="col-md-4"></div>
     </div>
