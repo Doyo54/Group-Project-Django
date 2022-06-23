@@ -3,4 +3,11 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello, world. You're at the index page.")
+   return render(request, 'index.html')
+
+def searchresults(request):
+    response = "You're looking at the search results."
+    return HttpResponse(response)
+
+def profile(request):
+    return HttpResponse("You're looking at the profile.")
