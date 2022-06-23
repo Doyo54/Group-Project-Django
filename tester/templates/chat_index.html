@@ -1,0 +1,44 @@
+{%extends 'base4.html'%}
+{%load bootstrap3%}
+{%load static%}
+
+
+
+{%block content%}
+<body style="background-color:#E8F1FE;">
+
+</body>
+<div class="container">
+    <h6>
+ <span style="margin-left:60%;font-size:small;">You can also <a href="/chat/video/">video chat here</a></span>
+    </h6>
+    <div style="margin-top:15%;text-align:center;">
+          Which doctor would you like to chat with?<br>
+    <div class="panel">
+        <form method="POST" action="check">
+    {%csrf_token%}
+    <input id="room-name-input" name='room_name' type="text" size="100" style="width:15%;"><br>
+    <input id="room-name-submit" type="submit" value="Create chat room" style="margin-top:0.5%;">
+</form>
+    </div>
+    </div>
+
+</div>
+
+{%endblock%}
+
+<script src="{%static 'js/root.js'%}"></script>
+<script src="{%static 'js/site.js'%}"></script>
+<script>
+    document.querySelector('#room-name-input').focus();
+    document.querySelector('#room-name-input').onkeyup = function(e) {
+        if (e.keyCode === 13) {
+            document.querySelector('#room-name-submit').click();
+        }
+    };
+    document.querySelector('#room-name-submit').onclick = function(e) {
+        var roomName = document.querySelector('#room-name-input').value;
+        window.location.pathname = '/chat/' + roomName + '/';
+    };
+</script>
+</html>

@@ -15,11 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import re_path,include
+from django.conf.urls.static import static
+from django.conf import settings
+
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
     re_path(r'',include('cindy.urls')),
     re_path(r'^home/',include('benjamin.urls')),
     re_path(r'^post/',include('doyo.urls')),
+    re_path(r'^chat/',include('tester.urls')),
+    re_path(r'^profile/',include('ali.urls')),
 
 ]
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

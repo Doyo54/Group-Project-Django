@@ -40,7 +40,13 @@
             {% for post in posts %}
         <div class="col-md-4" style="margin-bottom: 3%;">
             <div style="font-size: large;"  class="card">
-                
+                <h1 class="card-header">
+                    <a style="color: black; text-decoration: none;">
+                    <img src="{{post.user.profile_picture.url}}" style="border-radius:10%; width: 10%;">
+                   
+                    {{post.user.firstname}}
+                    </a>
+                </h1>
                 <div class="card-body mb-4">
                     <div class="card-text"> 
                         <h3 class="card-title mb-2">{{post.description}}</h3>

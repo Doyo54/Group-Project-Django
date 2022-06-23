@@ -1,0 +1,33 @@
+<nav class="navbar sticky-top navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">DoctorsConnect</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item n-header">
+          <a class="nav-link active" aria-current="page" href="/home">Home</a>
+        </li>
+        {%if user.is_authenticated%}
+        <li class="nav-item">
+          <a class="nav-link" href="/profile/profile/{{user.id}}/">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/chat/video/">Video chat</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/chat/logout/">Logout</a>
+        </li>
+      </ul>
+    {%else%}
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/chat/doc/signup/">Register</a>
+        </li>
+      <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/chat/login/">Login</a>
+        </li>
+    </ul>
+    {%endif%}
+  </div>
+</nav>

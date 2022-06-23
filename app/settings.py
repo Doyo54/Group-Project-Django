@@ -31,17 +31,24 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ali',
     'cindy',
     'benjamin',
     'doyo',
-    'bootstrap3'
-
+    'tester',
+    'bootstrap3',
+    'tinymce',
+    'crispy_forms',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'django_registration',
 ]
 
 MIDDLEWARE = [
@@ -67,12 +74,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                 'django.template.context_processors.media',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
+ASGI_APPLICATION = 'app.asgi.application'
+
 CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
@@ -86,9 +96,11 @@ CHANNEL_LAYERS = {
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+       'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'doc',
+        'USER': 'doyo',
+    'PASSWORD':'doyo123',
     }
 }
 
@@ -134,8 +146,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'chat/login'
+LOGIN_REDIRECT_URL = '/home'
+AUTH_USER_MODEL = 'doyo.AllUsers'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 

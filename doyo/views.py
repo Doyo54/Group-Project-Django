@@ -1,15 +1,18 @@
 from django.shortcuts import render, redirect,HttpResponseRedirect,get_object_or_404
-from .models import Comment,Post
+from .models import Comment,Post,Profile
 from .forms import PostForm,CommentForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 def post(request):
+    current_user = request.user.profile
+    profile= Profile.objects.get_or_create(user=request.user)
     posts = Post.objects.all()
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
+            post.editor = current_user
             post.save()
             return HttpResponseRedirect(request.path_info)
     else:
