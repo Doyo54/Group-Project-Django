@@ -37,16 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
-    'tester',
+    'cindy',
+    'benjamin',
     'doyo',
     'bootstrap3'
 
-=======
-    'doyo',
-    'ali',
-    'bootstrap3',
->>>>>>> ali
 ]
 
 MIDDLEWARE = [
@@ -141,7 +136,6 @@ STATICFILES_DIRS = (
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = '/'
-AUTH_USER_MODEL = 'doyo.AllUsers'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
