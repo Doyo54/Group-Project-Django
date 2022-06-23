@@ -1,8 +1,9 @@
-{%extends 'auth/base.html'%}
+{%extends 'base.html'%}
 {%load static%}
 {%load bootstrap5%}
 {%load bootstrap4%}
-{% load crispy_forms_tags %}
+{%load crispy_forms_tags%}
+
 
 {%block content%}
 <body style="background-color:#E8F1FE;">
@@ -13,7 +14,7 @@
     <div class="row" style="margin-top:2.5%;padding-top:1.5%;padding-bottom:1.5%;">
         <div class="col-md-1"></div>
 
-        <div class="col-md-5 rounded" style="padding:2.5%;margin-right:0.5%;">
+        <div class="col-md-5 rounded" style="background:transparent;padding:2.5%;">
             {%if form.errors%}
             <p>
                 Please confirm that your information is correct.
@@ -22,13 +23,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="text-center">
-                        Register for a standard/user's account
+                        Sign up as a Doctor
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form action="/user/register/" method="post" style="text-align:center;">
+                    <form action="/doc/signup/" method="post" style="text-align:center;">
                         {%csrf_token%}
-                        {{patient_reg_form|crispy}}
+                        {{ doc_reg_form|crispy }}
                         <div class="form-group">
                             <input type="submit" class="btn btn-outline-info btn-dark btn-sm" value="Sign Up" style="margin-top:1.5%;">
                         </div>
@@ -38,7 +39,7 @@
             </div>
         </div>
 
-        <div class="col-md-5" style="padding:2.5%;margin-left:0.5%;">
+        <div class="col-md-5 rounded" style="background:transparent;padding:2.5%;">
             {%if form.errors%}
             <p>
                 Please confirm that your information is correct.
@@ -47,13 +48,13 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="text-center">
-                        Register for a doctor's account
+                        Sign up as a standard user
                     </h3>
                 </div>
                 <div class="panel-body">
-                    <form action="/doc/register/" method="post" style="text-align:center;">
+                    <form action="/user/signup/" method="post" style="text-align:center;">
                         {%csrf_token%}
-                        {{doc_reg_form|crispy}}
+                        {{patient_reg_form|crispy}}
                         <div class="form-group">
                             <input type="submit" class="btn btn-outline-info btn-dark btn-sm" value="Sign Up" style="margin-top:1.5%;">
                         </div>

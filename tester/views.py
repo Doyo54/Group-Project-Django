@@ -31,10 +31,7 @@ def doc(request):
 			specialty = docform.cleaned_data['specialty']
 			medical_license = docform.cleaned_data['medical_license']
 			licensed_by = docform.cleaned_data['licensed_by']
-			national_id = docform.cleaned_data['national_id']
-			field_of_experience = docform.cleaned_data['field_of_experience']
-			years_of_experience = docform.cleaned_data['years_of_experience']
-			doctor = Doctor(specialty=specialty,medical_license=medical_license,licensed_by=licensed_by,national_id=national_id,field_of_experience=field_of_experience,years_of_experience=years_of_experience)
+			doctor = Doctor(specialty=specialty,medical_license=medical_license,licensed_by=licensed_by,)
 			# location.user = current_user
 			doctor.save()
 		return redirect('doc-profile')

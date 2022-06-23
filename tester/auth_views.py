@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
-from tester.forms import DoctorRegForm,PatientRegForm,DoctorLoginForm,PatientLoginForm
+from tester.auth_forms import DoctorRegForm,PatientRegForm,LoginForm
 from django.views import View
 
 
@@ -33,17 +33,6 @@ class DoctorRegView(View):
 		return render(request, self.template_name, {"doc_reg_form": doc_reg_form})
 
 
-class DoctorLoginView(LoginView):
-	form_class = DoctorLoginForm
-
-	def form_valid(self, doc_login_form):
-		remember_me = doc_login_form.cleaned_data.get('remember_me')
-		if not remember_me:
-			self.request.session.set_expiry(0)
-			self.request.session.modified = True
-		return super(DoctorLoginView, self).form_valid(doc_login_form)
-
-
 class PatientRegView(View):
 	form_class = PatientRegForm
 	initial = {'key': 'value'}
@@ -70,4 +59,14 @@ class PatientRegView(View):
 			return redirect(to='/user/submit/details/')
 		return render(request, self.template_name, {"patient_reg_form": patient_reg_form})
 
+
+class AllUsersLoginView(LoginView):
+	form_class = LoginForm
+
+	def form_valid(self, form):
+		remember_me = form.cleaned_data.get('remember_me')
+		if not remember_me:
+			self.request.session.set_expiry(0)
+			self.request.session.modified = True
+		return super(AllUsersLoginView, self).form_valid(form)
 
