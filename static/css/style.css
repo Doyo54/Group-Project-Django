@@ -1,0 +1,200 @@
+.landing {
+  background-color: rgb(203, 228, 235);
+  height: 50vh;
+}
+.uno {
+  background-color: #e8f1fe;
+  height: 80vh;
+}
+.duo {
+  background-color: #f6f8fb;
+}
+
+
+/* UTILITIES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Lato", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+/* NAVBAR STYLING STARTS */
+.jumbotron {
+  width: 90%;
+  bottom: -50%;
+}
+.vl {
+  border-left: 3px solid gray;
+  height: 150px;
+}
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+.bg-footer {
+  background-color: #33383c;
+  padding: 50px 0 30px;
+}
+.footer-heading {
+  letter-spacing: 2px;
+}
+
+.footer-link a {
+  color: #acacac;
+  line-height: 40px;
+  font-size: 14px;
+  transition: all 0.5s;
+}
+
+.footer-link a:hover {
+  color: #1bbc9b;
+}
+
+.contact-info {
+  color: #acacac;
+  font-size: 14px;
+}
+
+.footer-social-icon {
+  font-size: 15px;
+  height: 34px;
+  width: 34px;
+  line-height: 34px;
+  border-radius: 3px;
+  text-align: center;
+  display: inline-block;
+}
+
+.facebook {
+  background-color: #4e71a8;
+  color: #ffffff;
+}
+
+.twitter {
+  background-color: #55acee;
+  color: #ffffff;
+}
+
+.google {
+  background-color: #d6492f;
+  color: #ffffff;
+}
+
+.apple {
+  background-color: #424041;
+  color: #ffffff;
+}
+
+.footer-alt {
+  color: #acacac;
+}
+
+.footer-heading {
+  position: relative;
+  padding-bottom: 12px;
+}
+
+.footer-heading:after {
+  content: "";
+  width: 25px;
+  border-bottom: 1px solid #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  border-bottom: 1px solid #1bbc9b;
+}
+.service-grid {
+  background: #fcfcfc;
+}
+.service-title h4 {
+  position: relative;
+  display: inline-block;
+}
+.service-icon {
+  position: relative;
+}
+.service-title p {
+  padding: 0 190px;
+  margin-bottom: 10px;
+}
+.about-info-text h2 {
+  margin-bottom: 23px;
+  text-transform: capitalize;
+  font-weight: 700;
+  line-height: 0.9;
+}
+.about-info-text p {
+  padding: 0 100px;
+  font-size: 18px;
+  margin-bottom: 26px;
+  position: relative;
+}
+.about-content p {
+  margin-bottom: 0;
+}
+.about-info-text a {
+  margin-bottom: 20px;
+  position: relative;
+}
+.service-icon i {
+  font-size: 40px;
+  color: #e8bc00;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+.service-wrap {
+  border: 1px solid #e6e6e6;
+  padding: 50px 30px;
+  position: relative;
+}
+
+.service-wrap p {
+  position: relative;
+}
+
+.service-wrap:hover {
+  /* background-image: url(https://res.cloudinary.com/dih0q5sju/image/upload/v1655384258/rsanzi6uwy7h7uqeju0v.jpg); */
+  background-image: url(../../static/images/hush-naidoo-jade-photography-yo01Z-9HQAw-unsplash.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: local;
+  transition: all 0.5s;
+}
+
+.service-wrap:hover:before {
+  background: rgba(0, 0, 0, 0.2901960784313726);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0px;
+  content: "";
+  top: 0;
+  opacity: 1;
+}
+
+.service-wrap:hover h4,
+.service-wrap:hover p {
+  color: #fff;
+}
+.service-wrap h4 {
+  font-weight: 600;
+  color: #1e2331;
+  margin-bottom: 17px;
+  font-size: 18px;
+  text-transform: capitalize;
+  position: relative;
+}
+.service-wrap a {
+  font-size: 14px;
+  font-weight: 600;
+  position: relative;
+}
